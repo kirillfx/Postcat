@@ -157,34 +157,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1336107754332798, guid: 366a2321e5f164ef49660f3759afee52, type: 2}
-      propertyPath: m_Name
-      value: Cargo (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 233293446416426784, guid: 366a2321e5f164ef49660f3759afee52,
         type: 2}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 1196242324}
-    - target: {fileID: 233293446416426784, guid: 366a2321e5f164ef49660f3759afee52,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.025272667
-      objectReference: {fileID: 0}
-    - target: {fileID: 233293446416426784, guid: 366a2321e5f164ef49660f3759afee52,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.012530804
-      objectReference: {fileID: 0}
-    - target: {fileID: 233293446416426784, guid: 366a2321e5f164ef49660f3759afee52,
-        type: 2}
-      propertyPath: m_Anchor.x
-      value: -0.95372736
-      objectReference: {fileID: 0}
-    - target: {fileID: 233293446416426784, guid: 366a2321e5f164ef49660f3759afee52,
-        type: 2}
-      propertyPath: m_Anchor.y
-      value: 0.5835308
+    - target: {fileID: 1336107754332798, guid: 366a2321e5f164ef49660f3759afee52, type: 2}
+      propertyPath: m_Name
+      value: Cargo (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 366a2321e5f164ef49660f3759afee52, type: 2}
@@ -381,6 +361,11 @@ Prefab:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 116199878}
+    - target: {fileID: 50816222076056696, guid: 366a2321e5f164ef49660f3759afee52,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 366a2321e5f164ef49660f3759afee52, type: 2}
   m_IsPrefabParent: 0
