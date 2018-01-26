@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114253486483104782}
   m_Layer: 0
   m_Name: Postcat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4629b178cde44f84a68f23aa42ca24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
+  gas: 100
 --- !u!212 &212297612986925800
 SpriteRenderer:
   m_ObjectHideFlags: 1
