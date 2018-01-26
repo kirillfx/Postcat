@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114372249583102002}
   m_Layer: 0
   m_Name: Cargo
-  m_TagString: Untagged
+  m_TagString: Cargo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336107754332798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.583, y: -0.561, z: 0.80507004}
+  m_LocalPosition: {x: -0.02, y: -1.04, z: 0.80507004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4611072971463206}
@@ -87,7 +87,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecef57edc185c4c919765698641b1110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  damageScale: 1
 --- !u!212 &212178288201428016
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -186,8 +188,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.5898058, y: 0.5584327}
-  m_ConnectedAnchor: {x: 0.0068057775, y: -0.0025672913}
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.02, y: -1.04}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

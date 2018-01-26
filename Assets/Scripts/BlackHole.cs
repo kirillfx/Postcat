@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BlackHole : MonoBehaviour {
 
-
-	void Start () {
-		
-	}
+	void OnTriggerEnter2D(Collider2D col) {
+		// Play wierd sound sound.
+	} 
 	
-
-	void Update () {
-		
-	}
-
-
-	void OnTriggerStay2D(Collider2D col) {
-		// Attract objects
-	}
 }

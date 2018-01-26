@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Cargo : MonoBehaviour {
 
-
-	void Start () {
-		
-	}
+	public float health = 100.0f;
+	public float damageScale = 1.0f;
 
 
 	void Update () {
+
+		if (health <= 0)
+			Die();
 		
 	}
 
 
-	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log(gameObject.name + " collided.");
-		Collide();
-	} 
+	void OnCollisionEnter2D(Collision2D other) {
+		float m = other.otherRigidbody.velocity.magnitude;
+		health  -= m * damageScale;
+		
+		Debug.Log(m.ToString() + " health left " + health);
+	}
 
 
-	// Instantiate sparks, dust, reduce gas.
-	void Collide() {
-
+	void Die() {
+		Destroy(this.gameObject);
 	}
 }
