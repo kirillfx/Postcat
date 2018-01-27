@@ -15,10 +15,14 @@ public class Postcat : MonoBehaviour {
 	public float clampVelScale = 1.0f;
 
 	Rigidbody2D rb;
+	Animator animator;
 
 
 	void Awake() {
+
 		rb = GetComponent<Rigidbody2D>();
+		animator = GetComponentInChildren<Animator>();
+
 	}
 	
 
@@ -27,6 +31,11 @@ public class Postcat : MonoBehaviour {
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
 		Vector3 movement = new Vector3(h, v, 0.0f);
+
+		animator.SetFloat("horizontal", h);
+		animator.SetFloat("vertical", v);
+
+
 		
 		if (fuel > 0) {
 			
@@ -58,5 +67,17 @@ public class Postcat : MonoBehaviour {
 
 	public void Refuel(float fuelAmount) {
 		fuel += fuelAmount;
+	}
+
+
+	public void Jump() {
+		rb.AddForce(Vector3.up * 5.0f, ForceMode2D.Impulse);
+		animator.SetTrigger("Jump");
+	}
+
+
+	public void Crash() {
+		rb.AddForce(Vector3.left * 5.0f, ForceMode2D.Impulse);
+		animator.SetTrigger("Crash");
 	}
 }

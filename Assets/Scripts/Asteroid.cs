@@ -25,6 +25,21 @@ public class Asteroid : MonoBehaviour {
 			float damage = col.relativeVelocity.magnitude * collisionDamageScale;
 			Postcat postcat = obj.GetComponent<Postcat>();
 			postcat.ApplyDamage(damage);
+
+			Vector3 playerDir = 
+				(obj.transform.position - transform.position).normalized;
+			
+			float angle = Vector3.Angle(Vector3.left, playerDir);
+
+			Debug.Log(angle.ToString());
+			
+			if (angle >= 30.0f && angle <= 100.0f) {
+				Debug.Log("Jump");
+				postcat.Jump();
+			} else if (angle < 30.0f || angle > 100.0f) {
+				Debug.Log("Crash");
+				postcat.Crash();
+			}
 		}
 	}
 
