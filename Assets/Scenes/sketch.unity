@@ -839,6 +839,26 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 3.86384
       objectReference: {fileID: 0}
+    - target: {fileID: 61970947335022204, guid: cb38ec2dea6284c55bb06afeed2ac5ba,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.83928895
+      objectReference: {fileID: 0}
+    - target: {fileID: 61970947335022204, guid: cb38ec2dea6284c55bb06afeed2ac5ba,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.0058484
+      objectReference: {fileID: 0}
+    - target: {fileID: 61970947335022204, guid: cb38ec2dea6284c55bb06afeed2ac5ba,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.03972459
+      objectReference: {fileID: 0}
+    - target: {fileID: 61970947335022204, guid: cb38ec2dea6284c55bb06afeed2ac5ba,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.7616515
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb38ec2dea6284c55bb06afeed2ac5ba, type: 2}
   m_IsPrefabParent: 0
@@ -956,6 +976,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b47f858cea9b44a39ee0bf25cf2caa6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1555684664 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1765069806234878, guid: 2b47f858cea9b44a39ee0bf25cf2caa6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1555684663}
 --- !u!1001 &1688816708
 Prefab:
   m_ObjectHideFlags: 0
@@ -1015,6 +1040,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2045111535}
+  - component: {fileID: 2045111536}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1035,3 +1061,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045111536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045111534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e526d63fec3248a3963be00e55b0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postcatObj: {fileID: 1555684664}
+  gameState: {fileID: 11400000, guid: 0430cb7f1e5d54e01ba6d0c2b01a75c4, type: 2}
