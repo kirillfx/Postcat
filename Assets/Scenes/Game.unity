@@ -248,16 +248,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114251187039648202, guid: b7460880d2a25414eb467f91164188c9,
-        type: 2}
-      propertyPath: reboundForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114251187039648202, guid: b7460880d2a25414eb467f91164188c9,
-        type: 2}
-      propertyPath: fuel
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7460880d2a25414eb467f91164188c9, type: 2}
   m_IsPrefabParent: 0
@@ -300,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postcatObj: {fileID: 1629276536}
   gameState: {fileID: 11400000, guid: 0430cb7f1e5d54e01ba6d0c2b01a75c4, type: 2}
+  loadSection: 0
 --- !u!4 &1762616808
 Transform:
   m_ObjectHideFlags: 0

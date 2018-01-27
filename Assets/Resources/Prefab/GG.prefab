@@ -1170,7 +1170,7 @@ MonoBehaviour:
   speedScale: 10
   maxSpeed: 10
   consumption: 0.1
-  fuel: 1000
+  fuel: 100000
   yBound: 8
   reboundForce: 10
   clampVelScale: 1

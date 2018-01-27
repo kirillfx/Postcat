@@ -8,10 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a695ad261364e9aa6ce4e5240a6fc9, type: 3}
-  m_Name: GameState
+  m_Script: {fileID: 11500000, guid: 6bb67d27996934f54a75eecf1c0f67c8, type: 3}
+  m_Name: Level1
   m_EditorClassIdentifier: 
-  levelSpecs:
-  - {fileID: 11400000, guid: 7447cfe86a04f4487b5dc85cbe2754e5, type: 2}
-  fuel: 3002.712
   levelIndex: 0
+  totalSections: 5

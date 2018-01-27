@@ -10,10 +10,15 @@ public class GameController : MonoBehaviour {
 	public GameState gameState;
 
 	private Postcat postcat;
+	private Transform[] levelSections;
+	
+	public bool loadSection;
+	private Vector3 lastSectionRoot;
 
 
 	void Awake() {
 		postcat = postcatObj.GetComponent<Postcat>();
+		levelSections = Resources.LoadAll<Transform>("Prefab/LevelSections");
 	}
 
 
@@ -50,7 +55,8 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator RunGame() {
 
-		gameState.levelIndex = 1;
+		lastSectionRoot = Vector3.right * 2;
+		gameState.levelIndex = 2;
 
 		foreach(LevelSpec levelSpec in gameState.levelSpecs) {
 			
@@ -59,7 +65,11 @@ public class GameController : MonoBehaviour {
 			gameState.levelIndex++;
 			
 			yield return CheckpointScene();
-		}	
+	
+			gameState.levelIndex++;
+		}
+		
+
 		yield return null;
 	}
 
@@ -71,7 +81,30 @@ public class GameController : MonoBehaviour {
 
 
 	IEnumerator RunLevel(LevelSpec levelSpec) {
-		SceneManager.LoadSceneAsync(gameState.levelIndex, LoadSceneMode.Additive);
-		yield return null;
+		// 2 is an scene index offset;
+		SceneManager.LoadSceneAsync(levelSpec.levelIndex + 2, LoadSceneMode.Additive);
+
+		// Load first section.
+		int index = Random.Range( 0, levelSections.Length );
+		Transform t = Instantiate(levelSections[index], lastSectionRoot + Vector3.right * 20.0f, transform.rotation);
+		lastSectionRoot = t.transform.position;
+		loadSection = false;
+		
+		// Process remaing sections.
+		for(int i=1; i < levelSpec.totalSections; i++) {
+			
+			yield return new WaitUntil(() => loadSection);
+			
+			index = Random.Range( 0, levelSections.Length );
+			
+			t = Instantiate(levelSections[index], lastSectionRoot + Vector3.right * 20.0f, transform.rotation);
+			
+			loadSection = false;
+
+			lastSectionRoot = t.transform.position;
+
+			yield return null;
+		}
+		
 	}
 }

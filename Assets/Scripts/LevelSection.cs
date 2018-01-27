@@ -20,9 +20,16 @@ public class LevelSection : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.gameObject.CompareTag("Player")) {
-			Debug.Log("Player entered");
-			int index = Random.Range( 0, levelSections.Length );
-			Instantiate(levelSections[index], transform.position + Vector3.right * 20.0f, transform.rotation);
+
+			GameController gameController = GameObject
+				.Find("GameController")
+				.GetComponent<GameController>();
+
+			gameController.loadSection = true;
+
+			// Debug.Log("Player entered");
+			// int index = Random.Range( 0, levelSections.Length );
+			// Instantiate(levelSections[index], transform.position + Vector3.right * 20.0f, transform.rotation);
 		}
 
 	}
