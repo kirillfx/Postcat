@@ -37,12 +37,12 @@ GameObject:
   - component: {fileID: 4204095033028296}
   - component: {fileID: 212897357071996510}
   - component: {fileID: 95592027399940202}
-  - component: {fileID: 61108226022155778}
+  - component: {fileID: 70814978874075650}
   - component: {fileID: 50990779072033926}
   - component: {fileID: 114251187039648202}
   m_Layer: 0
   m_Name: GG
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +279,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4601218190789370}
+  - component: {fileID: 95394733700474362}
   m_Layer: 0
   m_Name: GG
   m_TagString: Untagged
@@ -1143,8 +1144,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61108226022155778
-BoxCollider2D:
+--- !u!70 &70814978874075650
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -1155,19 +1156,26 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000008940697, y: 0.0060551167}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.79, y: 10.85}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.29758328, y: 0.35813665}
-  m_EdgeRadius: 0
+  m_Offset: {x: 6.5065947, y: 4.7139645}
+  m_Size: {x: 26.708193, y: 36.401672}
+  m_Direction: 0
+--- !u!95 &95394733700474362
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527026446231388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bc290afcbbdf2148b0a0745fdab6280, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95592027399940202
 Animator:
   serializedVersion: 3

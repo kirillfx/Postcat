@@ -14,4 +14,4 @@ MonoBehaviour:
   levelSpecs:
   - {fileID: 11400000, guid: 7447cfe86a04f4487b5dc85cbe2754e5, type: 2}
   fuel: 3002.712
-  levelIndex: 0
+  levelIndex: 2

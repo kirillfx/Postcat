@@ -8,9 +8,8 @@ public class GameState : ScriptableObject {
 
 	public LevelSpec[] levelSpecs;
 	public float fuel;
-	public int levelIndex = 0;  // Last played level index;
 	
-	
+
 	// Save rest of fuel for the next level.
 	public void StoreFuel(float fuelRest) {
 		fuel += fuelRest;

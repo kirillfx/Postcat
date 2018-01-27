@@ -9,11 +9,7 @@ public class LevelSection : MonoBehaviour {
 
 
 	void Awake() {
-		
 		levelSections = Resources.LoadAll<Transform>("Prefab/LevelSections");
-		
-		foreach(Transform x in levelSections )
-			Debug.Log(x.name);
 	}
 
 

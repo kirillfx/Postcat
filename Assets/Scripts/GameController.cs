@@ -56,17 +56,13 @@ public class GameController : MonoBehaviour {
 	IEnumerator RunGame() {
 
 		lastSectionRoot = Vector3.right * 2;
-		gameState.levelIndex = 2;
 
 		foreach(LevelSpec levelSpec in gameState.levelSpecs) {
 			
 			yield return RunLevel(levelSpec);
 			
-			gameState.levelIndex++;
-			
 			yield return CheckpointScene();
 	
-			gameState.levelIndex++;
 		}
 		
 
@@ -76,18 +72,19 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator CheckpointScene() {
 		// Cut scene and next level loading.
+		Debug.Log("Playing cutscene");
 		yield return null;
 	}
 
 
 	IEnumerator RunLevel(LevelSpec levelSpec) {
-		// 2 is an scene index offset;
-		SceneManager.LoadSceneAsync(levelSpec.levelIndex + 2, LoadSceneMode.Additive);
+
+		Vector3 initialOffset = Vector3.right * 2.0f;
 
 		// Load first section.
 		int index = Random.Range( 0, levelSections.Length );
-		Transform t = Instantiate(levelSections[index], lastSectionRoot + Vector3.right * 20.0f, transform.rotation);
-		lastSectionRoot = t.transform.position;
+		Transform t = Instantiate(levelSections[index], lastSectionRoot + initialOffset, transform.rotation);
+		lastSectionRoot = t.transform.position + Vector3.right * 20.0f;
 		loadSection = false;
 		
 		// Process remaing sections.
@@ -97,11 +94,11 @@ public class GameController : MonoBehaviour {
 			
 			index = Random.Range( 0, levelSections.Length );
 			
-			t = Instantiate(levelSections[index], lastSectionRoot + Vector3.right * 20.0f, transform.rotation);
+			t = Instantiate(levelSections[index], lastSectionRoot, transform.rotation);
 			
 			loadSection = false;
 
-			lastSectionRoot = t.transform.position;
+			lastSectionRoot = t.transform.position + Vector3.right * 20.0f;
 
 			yield return null;
 		}
