@@ -50,23 +50,28 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator RunGame() {
 
-		gameState.stage = 0;
-		yield return RunStage();
-		
-		gameState.stage++;
-		
+		gameState.levelIndex = 1;
+
+		foreach(LevelSpec levelSpec in gameState.levelSpecs) {
+			
+			yield return RunLevel(levelSpec);
+			
+			gameState.levelIndex++;
+			
+			yield return CheckpointScene();
+		}	
 		yield return null;
 	}
 
 
 	IEnumerator CheckpointScene() {
+		// Cut scene and next level loading.
 		yield return null;
 	}
 
 
-	IEnumerator RunStage() {
-		int stageIndex = gameState.stage + 2;
-		SceneManager.LoadSceneAsync(stageIndex, LoadSceneMode.Additive);
+	IEnumerator RunLevel(LevelSpec levelSpec) {
+		SceneManager.LoadSceneAsync(gameState.levelIndex, LoadSceneMode.Additive);
 		yield return null;
 	}
 }

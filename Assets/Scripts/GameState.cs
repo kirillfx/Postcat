@@ -6,8 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Postcat/GameState")]
 public class GameState : ScriptableObject {
 
+	public LevelSpec[] levelSpecs;
 	public float fuel;
-	public int stage=0;
+	public int levelIndex = 0;
 	
 	// Save rest of fuel for the next level.
 	public void StoreFuel(float fuelRest) {

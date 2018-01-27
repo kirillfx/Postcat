@@ -16,7 +16,7 @@ public class PolyObstacle : MonoBehaviour {
 				index = 0;
 			} else {
 				index = 
-					Mathf.FloorToInt(Random.RandomRange(0, choices.Length + 0.99f));
+					index = Random.Range(0, choices.Length);
 			}
 		}
 		
@@ -24,6 +24,14 @@ public class PolyObstacle : MonoBehaviour {
 
 		Instantiate(obj, transform.position, obj.rotation);
 
+	}
+
+	
+	void OnDrawGizmos() {
+		
+		Gizmos.color = Color.gray;
+
+		Gizmos.DrawWireSphere(transform.position, 1.0f);
 	}
 
 }

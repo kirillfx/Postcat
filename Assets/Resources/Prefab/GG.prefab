@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114251187039648202}
   m_Layer: 0
   m_Name: GG
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1167,9 +1167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73cd9b16cd08347b78d8e2fbfa87dd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speedScale: 10
+  maxSpeed: 10
   consumption: 0.1
-  fuel: 100
+  fuel: 1000
+  yBound: 8
+  reboundForce: 10
+  clampVelScale: 1
 --- !u!212 &212075237103213230
 SpriteRenderer:
   m_ObjectHideFlags: 1
