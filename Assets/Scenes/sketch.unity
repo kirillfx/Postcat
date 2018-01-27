@@ -259,10 +259,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 1147549891652880, guid: b0a106286f2f947139c12c5f1d36eba7, type: 2}
-      propertyPath: m_Name
-      value: GasTank
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0a106286f2f947139c12c5f1d36eba7, type: 2}
   m_IsPrefabParent: 0

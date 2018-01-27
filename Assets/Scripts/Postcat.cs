@@ -8,7 +8,6 @@ public class Postcat : MonoBehaviour {
 	public float speed = 10.0f;
 	public float consumption = 0.1f;
 	public float fuel = 100.0f;
-	public float collisionDamageScale = 1.0f;
 
 	Rigidbody2D rb;
 
@@ -35,15 +34,8 @@ public class Postcat : MonoBehaviour {
 	}
 
 
-	public void ApplyAsteroidCollision(float damage) {
+	public void ApplyDamage(float damage) {
 		fuel -= damage;
-	}
-
-
-	void OnCollisionEnter2D(Collision2D collision) {
-		float damage = collision.relativeVelocity.magnitude * collisionDamageScale;
-		fuel -= damage;
-		Debug.Log("Postcat recieved damage " + damage.ToString() );
 	}
 
 

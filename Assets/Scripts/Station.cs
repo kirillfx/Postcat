@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Station : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	void OnTriggerEnter2D(Collider2D col) {
+		// Trigger Win event
+		Debug.Log("Win");
 	}
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
