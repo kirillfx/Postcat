@@ -8,9 +8,17 @@ public class PolyObstacle : MonoBehaviour {
 	public Transform[] choices;
 
 	void Awake() {
-		
-		int index = 
-			Mathf.FloorToInt(Random.RandomRange(0, choices.Length + 1));
+
+		int index = 0;
+
+		if (choices != null) {
+			if (choices.Length == 1) {
+				index = 0;
+			} else {
+				index = 
+					Mathf.FloorToInt(Random.RandomRange(0, choices.Length + 0.99f));
+			}
+		}
 		
 		Transform obj = choices[index];
 

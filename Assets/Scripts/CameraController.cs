@@ -13,15 +13,16 @@ public class CameraController : MonoBehaviour {
 
 
 	void Awake() {
+
 		initialPos = transform.position;
+
 	}
 
 
 	void FixedUpdate() {
 
-        Vector3 targetPosition = target.position; //target.TransformPoint(new Vector3(0, 5, -10));
+        Vector3 targetPosition = target.position;
 
-        // targetPosition.y = Mathf.Clamp(targetPosition.y, -maxCameraOffset, maxCameraOffset);
 		targetPosition.z = initialPos.z;
 
 		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
