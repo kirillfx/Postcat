@@ -16,9 +16,11 @@ public class GameController : MonoBehaviour {
 		postcat = postcatObj.GetComponent<Postcat>();
 	}
 
+
 	void Start() {
 		StartCoroutine( RunGame() );
 	}
+
 
 	public void StageCleared() {
 		gameState.StoreFuel(postcat.fuel);
@@ -47,14 +49,17 @@ public class GameController : MonoBehaviour {
 
 
 	IEnumerator RunGame() {
-		// Get first scene index.
-		// Run CutScene
-		// Run Level
+
 		gameState.stage = 0;
 		yield return RunStage();
 		
 		gameState.stage++;
 		
+		yield return null;
+	}
+
+
+	IEnumerator CheckpointScene() {
 		yield return null;
 	}
 
