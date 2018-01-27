@@ -16,11 +16,6 @@ public class Postcat : MonoBehaviour {
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 	}
-
-
-	void Start () {
-		
-	}
 	
 
 	void FixedUpdate () {
@@ -49,5 +44,10 @@ public class Postcat : MonoBehaviour {
 		float damage = collision.relativeVelocity.magnitude * collisionDamageScale;
 		fuel -= damage;
 		Debug.Log("Postcat recieved damage " + damage.ToString() );
+	}
+
+
+	public void Refuel(float fuelAmount) {
+		fuel += fuelAmount;
 	}
 }
