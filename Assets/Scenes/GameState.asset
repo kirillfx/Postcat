@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a695ad261364e9aa6ce4e5240a6fc9, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  fuel: 0
+  fuel: 48.700783
   stage: 0

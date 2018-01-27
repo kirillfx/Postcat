@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Postcat : MonoBehaviour {
 
-	public float speed = 10.0f;
+	public float speedScale = 10.0f;
+	public float maxSpeed = 10.0f;
 	public float consumption = 0.1f;
 	public float fuel = 100.0f;
+
+	public float yBound = 8.0f;
+	public float reboundForce = 1.0f;
+	public float clampVelScale = 1.0f;
 
 	Rigidbody2D rb;
 
@@ -25,7 +30,19 @@ public class Postcat : MonoBehaviour {
 		
 		if (fuel > 0) {
 			
-			rb.AddForce(movement * speed);
+			if (transform.position.y >= yBound) {
+				rb.velocity = Vector3.ClampMagnitude(rb.velocity, clampVelScale);
+				rb.AddForce(Vector3.up * -reboundForce);
+			}
+			else if (transform.position.y <= -yBound) {
+				rb.velocity = Vector3.ClampMagnitude(rb.velocity, clampVelScale);
+				rb.AddForce(Vector3.up * reboundForce);
+			}
+			else {
+				rb.AddForce(movement * speedScale);
+			}
+
+			rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 			
 			if (movement.magnitude > 0)
 				fuel -= consumption;

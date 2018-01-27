@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour {
 
@@ -14,10 +16,18 @@ public class GameController : MonoBehaviour {
 		postcat = postcatObj.GetComponent<Postcat>();
 	}
 
+	void Start() {
+		StartCoroutine( RunGame() );
+	}
 
 	public void StageCleared() {
 		gameState.StoreFuel(postcat.fuel);
 		postcat.fuel = 0;
+	}
+
+
+	float CalcFuelForNextLevel() {
+		return 100.0f;
 	}
 
 
@@ -35,4 +45,23 @@ public class GameController : MonoBehaviour {
 		Time.timeScale = 1.0f;
 	}
 
+
+	IEnumerator RunGame() {
+		// Get first scene index.
+		// Run CutScene
+		// Run Level
+		gameState.stage = 0;
+		yield return RunStage();
+		
+		gameState.stage++;
+		
+		yield return null;
+	}
+
+
+	IEnumerator RunStage() {
+		int stageIndex = gameState.stage + 2;
+		SceneManager.LoadSceneAsync(stageIndex, LoadSceneMode.Additive);
+		yield return null;
+	}
 }
