@@ -122,11 +122,14 @@ public class GameController : MonoBehaviour {
 
 	public IEnumerator StartGame() {
 		
-		currentLevel = 3 + 0; // 3 is an build index offset.
+		currentLevel = 3 + startLevel; // 3 is an build index offset.
 		
 		var loadFuture = SceneManager
 			.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
 		yield return new WaitUntil(() => loadFuture.isDone);
+
+		foreach(GameObject levelSection in GameObject.FindGameObjectsWithTag("LevelSection"))
+			levelSection.GetComponent<LSController>().InitializeObstacles();
 
 		var loadCheckpointFuture = SceneManager
 			.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
@@ -134,7 +137,7 @@ public class GameController : MonoBehaviour {
 
 		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
 
-		StartCoroutine(InstantiatePostcatNoRope());
+		yield return StartCoroutine(InstantiatePostcatNoRope());
 		
 		yield return null;
 	}
@@ -143,23 +146,23 @@ public class GameController : MonoBehaviour {
 	public IEnumerator ContinueGame(float offset) {
 		
 		var unloadFuture = SceneManager.UnloadSceneAsync(currentLevel);
-		while(!unloadFuture.isDone) 
-			yield return null;
+		yield return new WaitUntil(() => unloadFuture.isDone);
 
 		currentLevel++;
 
-		if (currentLevel == SceneManager.sceneCount)
+		if (currentLevel == 6)
 			Win();
 		else {
 
 			var loadFuture = SceneManager
 				.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
-			while(!loadFuture.isDone) 
-				yield return null;
-
+			yield return new WaitUntil(() => loadFuture.isDone);
 
 			Transform levelRoot = GameObject.FindWithTag("LevelRoot").transform;
 			levelRoot.transform.position = Vector3.right * (offset + 5.0f);
+
+			foreach(GameObject levelSection in GameObject.FindGameObjectsWithTag("LevelSection"))
+				levelSection.GetComponent<LSController>().InitializeObstacles();
 
 			yield return new WaitForSeconds(1.0f);
 
@@ -168,7 +171,6 @@ public class GameController : MonoBehaviour {
 			station.transform.Find("Finish").gameObject.SetActive(false);
 
 			yield return StartCoroutine(InstantiatePostCatWithPackage());
-			yield return null;
 		}
 
 	}

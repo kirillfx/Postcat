@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -168,11 +169,11 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1140508067}
     m_Modifications:
     - target: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 99.8
+      value: 89.8
       objectReference: {fileID: 0}
     - target: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -180,7 +181,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -200,11 +201,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e36979d6bf34848f6b6b1502b36695e5, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1001108044 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4814876444839922, guid: e36979d6bf34848f6b6b1502b36695e5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1001108043}
 --- !u!1 &1140508066
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,8 +237,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1179760299}
+  - {fileID: 1001108044}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1179760298
 Prefab:
@@ -271,7 +278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4962511048464662, guid: b0e30e71a05ec4d93ab212c4d2e5bc0e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4846989930418048, guid: b0e30e71a05ec4d93ab212c4d2e5bc0e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -497,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}

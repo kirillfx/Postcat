@@ -35,11 +35,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4583582092356292}
-  - component: {fileID: 114624847183027090}
   - component: {fileID: 61490685310414604}
+  - component: {fileID: 114700781398284202}
   m_Layer: 0
   m_Name: LevelSection_0 (1)
-  m_TagString: Untagged
+  m_TagString: LevelSection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -304,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -322,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -329,7 +332,7 @@ MonoBehaviour:
   - {fileID: 4446386451601058, guid: 8817afebfc9804c37ba420d196a7d733, type: 2}
   - {fileID: 4425915816286862, guid: ac048a794fee74780a40b35435565f06, type: 2}
   - {fileID: 4493563338713624, guid: dc3c53b3ef5434d18be0d75449e19477, type: 2}
---- !u!114 &114624847183027090
+--- !u!114 &114700781398284202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -337,7 +340,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1145651136853210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b473bf55da840cd969cc32a8c6dbef, type: 3}
+  m_Script: {fileID: 11500000, guid: 95937ee05528a4327b73a3592af160ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114709238058400096
@@ -351,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -369,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
@@ -387,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4965c5fd7b7e48e385ecbe629c84b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeOnStart: 0
   choices:
   - {fileID: 4153317639672546, guid: d97f57f508e6e459c9b84043f6eb663d, type: 2}
   - {fileID: 4218319495838240, guid: e60808770f56640cfb477250803a0831, type: 2}
