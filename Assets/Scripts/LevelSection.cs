@@ -21,7 +21,6 @@ public class LevelSection : MonoBehaviour {
 				.Find("GameController")
 				.GetComponent<GameController>();
 
-			gameController.loadSection = true;
 
 			// Debug.Log("Player entered");
 			// int index = Random.Range( 0, levelSections.Length );

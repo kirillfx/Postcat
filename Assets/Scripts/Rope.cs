@@ -15,11 +15,7 @@ public class Rope : MonoBehaviour {
 	private CircleCollider2D col;
 
 
-	void Awake() {
-
-		rb = GetComponent<Rigidbody2D>();
-		col = GetComponent<CircleCollider2D>();
-
+	public void InitializeRope() {
 		if (end != null) {
 
 			float dist = Vector3.Distance(transform.position, end.position) - col.radius - boxRadius;
@@ -49,6 +45,15 @@ public class Rope : MonoBehaviour {
 
 			end.GetComponent<HingeJoint2D>().connectedBody = previousSegment.GetComponent<Rigidbody2D>();
 		}
+	}
+
+
+	void Awake() {
+
+		rb = GetComponent<Rigidbody2D>();
+		col = GetComponent<CircleCollider2D>();
+
+		InitializeRope();
 
 	}
 
