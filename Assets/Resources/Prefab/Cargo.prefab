@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 61824661444851086}
   - component: {fileID: 50816222076056696}
   - component: {fileID: 233293446416426784}
+  - component: {fileID: 114372249583102002}
   m_Layer: 0
   m_Name: Cargo
-  m_TagString: Untagged
+  m_TagString: Cargo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336107754332798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.396, y: -1.132, z: 0.80507004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4611072971463206}
@@ -67,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1474447880896128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.7185967, y: 3.718597, z: 3.718597}
+  m_LocalScale: {x: 0.6204759, y: 0.6204761, z: 0.6204761}
   m_Children: []
   m_Father: {fileID: 4207627743280132}
   m_RootOrder: 0
@@ -86,7 +87,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -115,8 +116,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.46}
+  m_Size: {x: 2.6, y: 2.6}
   m_EdgeRadius: 0
+--- !u!114 &114372249583102002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336107754332798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecef57edc185c4c919765698641b1110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damageScale: 1
 --- !u!212 &212178288201428016
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 1c08401baf8a242809d5ce97d1b2abdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -174,8 +188,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.95372736, y: 0.5835308}
-  m_ConnectedAnchor: {x: 0.025272667, y: 0.012530804}
+  m_Anchor: {x: 1.35, y: 0}
+  m_ConnectedAnchor: {x: 1.35, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

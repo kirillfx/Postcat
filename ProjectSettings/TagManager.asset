@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cargo
+  - Asteroid
+  - GasTank
+  - Station
+  - Rope
+  - LevelRoot
   layers:
   - Default
   - TransparentFX
