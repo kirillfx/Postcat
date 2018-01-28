@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	public void PlayGame()
     {
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
+        FindObjectOfType<AudioManager>().Play("MainTheme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void PlaySound()

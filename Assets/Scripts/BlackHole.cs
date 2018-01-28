@@ -6,7 +6,8 @@ using UnityEngine;
 public class BlackHole : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
-		// Play wierd sound sound.
+        // Play wierd sound sound.
+        FindObjectOfType<AudioManager>().Play("blackhole");
 	} 
 	
 }

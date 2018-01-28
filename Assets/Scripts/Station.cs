@@ -21,6 +21,8 @@ public class Station : MonoBehaviour {
 
 		gameController.StageCleared();
 
+        //TODO: возможно тоже играт что-то ...
+
 	}
 
 	
