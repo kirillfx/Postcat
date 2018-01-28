@@ -31,7 +31,7 @@ public class Asteroid : MonoBehaviour {
 			
 			float angle = Vector3.Angle(Vector3.left, playerDir);
 
-			Debug.Log(angle.ToString());
+			// TODO: Sound
 			
 			if (angle >= 30.0f && angle <= 100.0f) {
 				Debug.Log("Jump");

@@ -67,17 +67,20 @@ public class Postcat : MonoBehaviour {
 
 	public void Refuel(float fuelAmount) {
 		fuel += fuelAmount;
+		// TODO: Play sound
 	}
 
 
 	public void Jump() {
 		rb.AddForce(Vector3.up * 5.0f, ForceMode2D.Impulse);
 		animator.SetTrigger("Jump");
+		// TODO: Play sound
 	}
 
 
 	public void Crash() {
 		rb.AddForce(Vector3.left * 5.0f, ForceMode2D.Impulse);
 		animator.SetTrigger("Crash");
+		// TODO: Play sound
 	}
 }

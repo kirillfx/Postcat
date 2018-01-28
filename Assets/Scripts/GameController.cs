@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour {
 
 
 	public void GameOver() {
+		// TODO: Play sound
 		PauseOn();
 	}
 
@@ -53,6 +54,17 @@ public class GameController : MonoBehaviour {
 	}
 
 
+	IEnumerator Checkpoint() {
+
+		// TODO: Play sound
+
+		// Cut scene and next level loading.
+		Debug.Log("Playing cutscene");
+		yield return null;
+	}
+
+
+
 	IEnumerator RunGame() {
 
 		lastSectionRoot = Vector3.right * 2;
@@ -61,7 +73,7 @@ public class GameController : MonoBehaviour {
 			
 			yield return RunLevel(levelSpec);
 			
-			yield return CheckpointScene();
+			yield return Checkpoint();
 	
 		}
 		
@@ -70,16 +82,11 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	IEnumerator CheckpointScene() {
-		// Cut scene and next level loading.
-		Debug.Log("Playing cutscene");
-		yield return null;
-	}
-
-
 	IEnumerator RunLevel(LevelSpec levelSpec) {
 
 		Vector3 initialOffset = Vector3.right * 2.0f;
+
+		// TODO: Play sound
 
 		// Load first section.
 		int index = Random.Range( 0, levelSections.Length );
