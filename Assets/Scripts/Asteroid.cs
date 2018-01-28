@@ -13,6 +13,10 @@ public class Asteroid : MonoBehaviour {
 
 	void Awake () {
 		rb = GetComponent<Rigidbody2D>();
+	}
+
+
+	void Start() {
 		rotSpeed = Random.Range(-1.0f, 1.0f);
 	}
 
@@ -35,10 +39,10 @@ public class Asteroid : MonoBehaviour {
             FindObjectOfType<AudioManager>().Play("hitAsteroid");
 
 			if (angle >= 30.0f && angle <= 100.0f) {
-				Debug.Log("Jump");
+				// Debug.Log("Jump");
 				postcat.Jump();
 			} else if (angle < 30.0f || angle > 100.0f) {
-				Debug.Log("Crash");
+				// Debug.Log("Crash");
 				postcat.Crash();
 			}
 		}

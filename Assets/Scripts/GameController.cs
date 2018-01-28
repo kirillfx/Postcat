@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
 	public Transform postcatPrefabWithCargo;
 	public int currentLevel;
 	public int startLevel;
+	public GameObject gameOverUI;
+	public GameObject winUI;
 
 	private bool isPaused;
 	private Postcat postcat;
@@ -39,6 +41,16 @@ public class GameController : MonoBehaviour {
 	public void GameOver() {
 		// TODO: Play sound
 		PauseOn();
+		if (gameOverUI != null)
+			gameOverUI.SetActive(true);
+	}
+
+
+	public void Win() {
+
+		PauseOn();
+		if (winUI != null)
+			winUI.SetActive(true);
 	}
 
 	
@@ -60,6 +72,11 @@ public class GameController : MonoBehaviour {
 		else
 			PauseOn();
 	}		
+
+
+	public void GotToMainMenu() {
+		SceneManager.LoadScene(0, LoadSceneMode.Single);
+	}
 
 
 	IEnumerator InstantiatePostcatNoRope() {
@@ -90,7 +107,7 @@ public class GameController : MonoBehaviour {
 
 		// Get fuel from station.
 		Postcat postcat = postcatObj.GetComponentInChildren<Postcat>();
-		postcat.fuel = gameState.Take();
+		postcat.fuel = 100 + gameState.Take();
 
 		// Set target for main camera.
 		Camera.main.GetComponent<CameraController>().target = postcatObj.transform.GetChild(0);
@@ -110,14 +127,10 @@ public class GameController : MonoBehaviour {
 		var loadFuture = SceneManager
 			.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
 		yield return new WaitUntil(() => loadFuture.isDone);
-		// while(!loadFuture.isDone) 
-		// 	yield return null;
 
 		var loadCheckpointFuture = SceneManager
 			.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
 		yield return new WaitUntil(() => loadCheckpointFuture.isDone);
-		// while(!loadCheckpointFuture.isDone) 
-		// 	yield return null;
 
 		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
 
@@ -133,24 +146,31 @@ public class GameController : MonoBehaviour {
 		while(!unloadFuture.isDone) 
 			yield return null;
 
-		var loadFuture = SceneManager
-			.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
-		while(!loadFuture.isDone) 
+		currentLevel++;
+
+		if (currentLevel == SceneManager.sceneCount)
+			Win();
+		else {
+
+			var loadFuture = SceneManager
+				.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
+			while(!loadFuture.isDone) 
+				yield return null;
+
+
+			Transform levelRoot = GameObject.FindWithTag("LevelRoot").transform;
+			levelRoot.transform.position = Vector3.right * (offset + 5.0f);
+
+			yield return new WaitForSeconds(1.0f);
+
+			// For the sake of safe spawning
+			GameObject station = GameObject.FindGameObjectWithTag("Station");
+			station.transform.Find("Finish").gameObject.SetActive(false);
+
+			yield return StartCoroutine(InstantiatePostCatWithPackage());
 			yield return null;
+		}
 
-
-		Transform levelRoot = GameObject.FindWithTag("LevelRoot").transform;
-		levelRoot.transform.position = Vector3.right * (offset + 5.0f);
-
-		yield return new WaitForSeconds(1.0f);
-
-		// For the sake of safe spawning
-		GameObject station = GameObject.FindGameObjectWithTag("Station");
-		station.transform.Find("Finish").gameObject.SetActive(false);
-
-		yield return StartCoroutine(InstantiatePostCatWithPackage());
-
-		yield return null;
 	}
 
 }
