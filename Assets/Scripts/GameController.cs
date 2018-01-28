@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 	public int currentLevel;
 	public int startLevel;
 
+	private bool isPaused;
 	private Postcat postcat;
 	private Transform[] levelSections;
 	private Vector3 lastSectionRoot;
@@ -28,14 +29,10 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	public void StageCleared() {
-		// gameState.StoreFuel(postcat.fuel);
-		// postcat.fuel = 0;
-	}
-
-
-	float CalcFuelForNextLevel() {
-		return 100.0f;
+	public void StageCleared(float fuel, float cargoHealth, float offset) {
+		gameState.StoreFuel(fuel);
+		gameState.fuel += cargoHealth;
+		StartCoroutine(ContinueGame(offset));
 	}
 
 
@@ -47,12 +44,22 @@ public class GameController : MonoBehaviour {
 	
 	public void PauseOn() {
 		Time.timeScale = 0.0f;
+		isPaused = true;
 	}
 
 
 	public void PauseOff() {
 		Time.timeScale = 1.0f;
+		isPaused = false;
 	}
+
+
+	public void TogglePause() {
+		if (isPaused)
+			PauseOff();
+		else
+			PauseOn();
+	}		
 
 
 	IEnumerator InstantiatePostcatNoRope() {
@@ -81,31 +88,68 @@ public class GameController : MonoBehaviour {
 			respawn.transform.position, 
 			respawn.transform.rotation).gameObject;
 
+		// Get fuel from station.
+		Postcat postcat = postcatObj.GetComponentInChildren<Postcat>();
+		postcat.fuel = gameState.Take();
+
+		// Set target for main camera.
 		Camera.main.GetComponent<CameraController>().target = postcatObj.transform.GetChild(0);
 		
 		yield return new WaitForSeconds(0.1f);
-		// Push Postcat away from the station.
 
+		// Push Postcat away from the station.
 		foreach(Rigidbody2D rb in postcatObj.GetComponentsInChildren<Rigidbody2D>())
-			rb.AddForce(Vector3.right * 20.0f, ForceMode2D.Impulse);
+			rb.AddForce(Vector3.right * 10.0f, ForceMode2D.Impulse);
 	}
 
 
 	public IEnumerator StartGame() {
 		
-		SceneManager.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
-		SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+		currentLevel = 3 + 0; // 3 is an build index offset.
+		
+		var loadFuture = SceneManager
+			.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
+		yield return new WaitUntil(() => loadFuture.isDone);
+		// while(!loadFuture.isDone) 
+		// 	yield return null;
+
+		var loadCheckpointFuture = SceneManager
+			.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
+		yield return new WaitUntil(() => loadCheckpointFuture.isDone);
+		// while(!loadCheckpointFuture.isDone) 
+		// 	yield return null;
 
 		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
 
-		while(respawn == null) {
-			respawn = GameObject.FindGameObjectWithTag("Respawn");
-			yield return null;
-		}
-
 		StartCoroutine(InstantiatePostcatNoRope());
-		// StartCoroutine(InstantiatePostCatWithPackage());
 		
+		yield return null;
+	}
+
+
+	public IEnumerator ContinueGame(float offset) {
+		
+		var unloadFuture = SceneManager.UnloadSceneAsync(currentLevel);
+		while(!unloadFuture.isDone) 
+			yield return null;
+
+		var loadFuture = SceneManager
+			.LoadSceneAsync(currentLevel, LoadSceneMode.Additive);
+		while(!loadFuture.isDone) 
+			yield return null;
+
+
+		Transform levelRoot = GameObject.FindWithTag("LevelRoot").transform;
+		levelRoot.transform.position = Vector3.right * (offset + 5.0f);
+
+		yield return new WaitForSeconds(1.0f);
+
+		// For the sake of safe spawning
+		GameObject station = GameObject.FindGameObjectWithTag("Station");
+		station.transform.Find("Finish").gameObject.SetActive(false);
+
+		yield return StartCoroutine(InstantiatePostCatWithPackage());
+
 		yield return null;
 	}
 

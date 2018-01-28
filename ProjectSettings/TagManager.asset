@@ -8,6 +8,8 @@ TagManager:
   - Asteroid
   - GasTank
   - Station
+  - Rope
+  - LevelRoot
   layers:
   - Default
   - TransparentFX

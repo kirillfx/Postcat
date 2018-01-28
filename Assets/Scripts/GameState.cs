@@ -17,20 +17,10 @@ public class GameState : ScriptableObject {
 
 
 	// Take fuel from balance.
-	public float LoadFuel(float capacity) {
-		if (fuel >= capacity) {
-			
-			fuel -= capacity;
-			return capacity;
-
-		} else {
-			
-			float f = fuel;
-			fuel = 0;
-			
-			return f;
-		}
-
+	public float Take() {
+		float f = fuel;
+		fuel = 0;
+		return f;
 	}
 
 }

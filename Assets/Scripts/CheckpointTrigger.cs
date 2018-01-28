@@ -5,18 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-// Load Checkpoint scene on
 public class CheckpointTrigger : MonoBehaviour {
 
-	public float offsetX = 5.0f;
+	public float offsetX = 10.0f;
 	
 	void OnTriggerEnter2D(Collider2D col) {
 
 		GameObject obj = col.gameObject;
 
 		if (obj.CompareTag("Player")) {
-			Debug.Log("Loading Checkpoint");
-			SceneManager.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
 			StartCoroutine(Offsetter());
 		}
 
@@ -25,17 +22,13 @@ public class CheckpointTrigger : MonoBehaviour {
 
 	IEnumerator Offsetter() {
 		
+		var loadFuture = SceneManager
+			.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
+		yield return new WaitUntil(() => loadFuture.isDone);
+
 		GameObject checkpointRoot = GameObject.Find("CheckpointRoot");
-
-		while(checkpointRoot == null) {
-			checkpointRoot = GameObject.Find("CheckpointRoot");
-			yield return null;
-		}
-
-
 		checkpointRoot.transform.position = 
 			transform.parent.position + Vector3.right * offsetX;
-
 
 		yield return null;
 	}

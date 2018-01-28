@@ -16,26 +16,29 @@ public class Postcat : MonoBehaviour {
 
 	Rigidbody2D rb;
 	Animator animator;
+	GameController gameController;
 
 
 	void Awake() {
 
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponentInChildren<Animator>();
+		gameController = GameObject
+			.Find("GameController")
+			.gameObject
+			.GetComponent<GameController>();
 
 	}
 	
 
 	void FixedUpdate () {
 
-		float h = Input.GetAxis("Horizontal");
+		float h = Mathf.Max(0.0f, Input.GetAxis("Horizontal"));
 		float v = Input.GetAxis("Vertical");
 		Vector3 movement = new Vector3(h, v, 0.0f);
 
 		animator.SetFloat("horizontal", h);
 		animator.SetFloat("vertical", v);
-
-
 		
 		if (fuel > 0) {
 			
@@ -55,7 +58,8 @@ public class Postcat : MonoBehaviour {
 			
 			if (movement.magnitude > 0)
 				fuel -= consumption;
-		}
+		} else
+			gameController.GameOver();
 
 	}
 

@@ -11,7 +11,7 @@ public class PastCuller : MonoBehaviour {
 		// Scene cleanup with delay;
 		if (obj.CompareTag("Station"))
 			Invoke("CleanupCheckpoint", 1.0f);
-		else
+		else if (obj.CompareTag("Asteroid"))
 			Destroy(obj);
 	}
 
