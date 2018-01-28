@@ -7,7 +7,7 @@ public class PolyObstacle : MonoBehaviour {
 
 	public Transform[] choices;
 
-	void Awake() {
+	void Start() {
 
 		int index = 0;
 
@@ -31,7 +31,7 @@ public class PolyObstacle : MonoBehaviour {
 		
 		Gizmos.color = Color.gray;
 
-		Gizmos.DrawWireSphere(transform.position, 1.0f);
+		Gizmos.DrawWireSphere(transform.position, 0.5f);
 	}
 
 }
