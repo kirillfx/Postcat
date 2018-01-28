@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDamageScale: 1
-  rotSpeedScale: 1
+  rotSpeedScale: 200
 --- !u!212 &212312826231671142
 SpriteRenderer:
   m_ObjectHideFlags: 1

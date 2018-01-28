@@ -6,9 +6,10 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour {
 
 	public float collisionDamageScale = 1.0f;
-	private Rigidbody2D rb;
 	public float rotSpeedScale = 1.0f;
+	
 	private float rotSpeed;
+	private Rigidbody2D rb;
 
 
 	void Awake () {
