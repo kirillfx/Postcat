@@ -586,6 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postcatObj: {fileID: 1629276536}
   gameState: {fileID: 11400000, guid: 0430cb7f1e5d54e01ba6d0c2b01a75c4, type: 2}
+  stationPrefab: {fileID: 0}
   loadSection: 0
 --- !u!4 &1762616808
 Transform:

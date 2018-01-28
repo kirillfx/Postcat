@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject postcatObj;
 	public GameState gameState;
+	public Transform stationPrefab;
 
 	private Postcat postcat;
 	private Transform[] levelSections;
@@ -54,12 +55,14 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	IEnumerator Checkpoint() {
+	IEnumerator Checkpoint(Vector3 p) {
 
 		// TODO: Play sound
 
 		// Cut scene and next level loading.
 		Debug.Log("Playing cutscene");
+		GameObject station = Instantiate(stationPrefab, p, stationPrefab.transform.rotation).gameObject;
+
 		yield return null;
 	}
 
@@ -71,9 +74,9 @@ public class GameController : MonoBehaviour {
 
 		foreach(LevelSpec levelSpec in gameState.levelSpecs) {
 			
-			yield return RunLevel(levelSpec);
+			// yield return RunLevel(levelSpec);
 			
-			yield return Checkpoint();
+			// yield return Checkpoint(Vector3.zero);
 	
 		}
 		
