@@ -5,6 +5,7 @@ using UnityEngine;
 public class Station : MonoBehaviour {
 
 	GameController gameController;
+	public float pullForce = 30.0f;
 
 	void Start() {
 		gameController = 
@@ -12,7 +13,7 @@ public class Station : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D col) {
+	void OnTriggerStay2D(Collider2D col) {
 
 		GameObject obj = col.gameObject;
 		
@@ -21,7 +22,7 @@ public class Station : MonoBehaviour {
 
 			// Suck Player into Station
 			Vector3 dir = transform.position - obj.transform.position;
-			obj.GetComponent<Rigidbody2D>().AddForce(dir * 10, ForceMode2D.Impulse);
+			obj.GetComponent<Rigidbody2D>().AddForce(dir * pullForce);
 		}
 
 		gameController.StageCleared();

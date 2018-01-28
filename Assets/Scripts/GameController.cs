@@ -10,7 +10,8 @@ public class GameController : MonoBehaviour {
 	public GameState gameState;
 	public Transform postcatPrefab;
 	public Transform postcatPrefabWithCargo;
-
+	public int currentLevel;
+	public int startLevel;
 
 	private Postcat postcat;
 	private Transform[] levelSections;
@@ -93,6 +94,7 @@ public class GameController : MonoBehaviour {
 	public IEnumerator StartGame() {
 		
 		SceneManager.LoadSceneAsync("Checkpoint", LoadSceneMode.Additive);
+		SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
 
 		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
 

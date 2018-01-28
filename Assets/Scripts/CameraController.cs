@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour {
 		if (target != null) {
 			Vector3 targetPosition = target.position;
 			targetPosition.z = initialPos.z;
+			targetPosition.y = Mathf.Clamp(targetPosition.y, -3.0f, 3.0f);
 			transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 		}
 
