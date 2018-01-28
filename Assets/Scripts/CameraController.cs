@@ -22,11 +22,12 @@ public class CameraController : MonoBehaviour {
 
 	void FixedUpdate() {
 
-        Vector3 targetPosition = target.position;
+		if (target != null) {
+			Vector3 targetPosition = target.position;
+			targetPosition.z = initialPos.z;
+			transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+		}
 
-		targetPosition.z = initialPos.z;
-
-		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 
 

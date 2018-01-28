@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 
 	public GameObject postcatObj;
 	public GameState gameState;
+	public Transform postcatPrefab;
 	public Transform stationPrefab;
 
 	private Postcat postcat;
@@ -18,7 +19,6 @@ public class GameController : MonoBehaviour {
 
 
 	void Awake() {
-		postcat = postcatObj.GetComponent<Postcat>();
 		levelSections = Resources.LoadAll<Transform>("Prefab/LevelSections");
 	}
 
@@ -55,13 +55,58 @@ public class GameController : MonoBehaviour {
 	}
 
 
+	void InstantiatePostcat() {
+		
+		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
+		
+		postcatObj = Instantiate(
+			postcatPrefab, 
+			respawn.transform.position, 
+			respawn.transform.rotation).gameObject;
+
+		postcat = postcatObj.GetComponent<Postcat>();
+		
+		Camera.main.GetComponent<CameraController>().target = postcatObj.transform;
+	}
+
+
+	IEnumerator StartGame() {
+		
+		SceneManager.LoadScene("Checkpoint", LoadSceneMode.Additive);
+		
+		// yield return new WaitUntil(() => 
+		// 	SceneManager.GetActiveScene().name == "Checkpoint");
+
+		GameObject respawn = GameObject.FindGameObjectWithTag("Respawn");
+
+		while(respawn == null) {
+			respawn = GameObject.FindGameObjectWithTag("Respawn");
+			yield return null;
+		}
+
+		Debug.Log(respawn.name);
+		
+		postcatObj = Instantiate(
+			postcatPrefab, 
+			respawn.transform.position, 
+			respawn.transform.rotation).gameObject;
+
+		postcat = postcatObj.GetComponent<Postcat>();
+
+		Camera.main.GetComponent<CameraController>().target = postcatObj.transform;
+		postcatObj.GetComponent<Rigidbody2D>().AddForce(Vector3.right * 20.0f, ForceMode2D.Impulse);
+		
+		yield return null;
+	}
+
+
 	IEnumerator Checkpoint(Vector3 p) {
 
 		// TODO: Play sound
 
 		// Cut scene and next level loading.
 		Debug.Log("Playing cutscene");
-		GameObject station = Instantiate(stationPrefab, p, stationPrefab.transform.rotation).gameObject;
+		SceneManager.LoadScene("Checkpoint", LoadSceneMode.Additive);
 
 		yield return null;
 	}
@@ -72,6 +117,10 @@ public class GameController : MonoBehaviour {
 
 		lastSectionRoot = Vector3.right * 2;
 
+		yield return StartGame();
+
+		yield return RunLevel1();
+
 		foreach(LevelSpec levelSpec in gameState.levelSpecs) {
 			
 			// yield return RunLevel(levelSpec);
@@ -80,6 +129,14 @@ public class GameController : MonoBehaviour {
 	
 		}
 		
+		yield return null;
+	}
+
+
+	IEnumerator RunLevel1() {
+		SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+		yield return new WaitForSeconds(1);
+		SceneManager.UnloadSceneAsync("Checkpoint");
 		yield return null;
 	}
 
