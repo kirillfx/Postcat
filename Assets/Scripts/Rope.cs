@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[RequireComponent(typeof(LineRenderer))]
 public class Rope : MonoBehaviour {
 
 	public Transform segment;
 	public Transform end;
 	public int totalSegments;
 	public float boxRadius = 0.1f;
+	public float ropeWidth = 1.0f;
 
 	private Rigidbody2D rb;
 	private CircleCollider2D col;
+	private List<Transform> segments = new List<Transform>();
+	private LineRenderer lineRenderer;
 
 
 	public void InitializeRope() {
@@ -23,6 +27,8 @@ public class Rope : MonoBehaviour {
 			float segmentLength = dist / (float) totalSegments;
 
 			Transform previousSegment = this.transform;
+			segments.Add(previousSegment);
+
 			Vector3 targetDir = (end.position - transform.position).normalized;
 
 			foreach(int i in Enumerable.Range(0, totalSegments)) {
@@ -30,6 +36,7 @@ public class Rope : MonoBehaviour {
 				Vector3 segemntPos = previousSegment.position + targetDir * segmentLength;
 
 				GameObject currentSegment = Instantiate(segment, segemntPos, segment.rotation).gameObject;
+				segments.Add(currentSegment.transform);
 				currentSegment.transform.right = previousSegment.position - currentSegment.transform.position;
 				
 				CapsuleCollider2D col = currentSegment.GetComponent<CapsuleCollider2D>();
@@ -44,6 +51,8 @@ public class Rope : MonoBehaviour {
 			}
 
 			end.GetComponent<HingeJoint2D>().connectedBody = previousSegment.GetComponent<Rigidbody2D>();
+			// segments.Add(end.transform);
+			UpdatePositions();
 		}
 	}
 
@@ -52,9 +61,24 @@ public class Rope : MonoBehaviour {
 
 		rb = GetComponent<Rigidbody2D>();
 		col = GetComponent<CircleCollider2D>();
+		
+		lineRenderer = GetComponent<LineRenderer>();
+		lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+		lineRenderer.widthMultiplier = ropeWidth;
 
 		InitializeRope();
+	}
 
+
+	void Update() {
+		UpdatePositions();
+	}
+
+
+	void UpdatePositions() {
+		lineRenderer.widthMultiplier = ropeWidth;
+		lineRenderer.positionCount = segments.Count;
+		lineRenderer.SetPositions(segments.Select(t => t.position).ToArray());
 	}
 
 }

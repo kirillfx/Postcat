@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+// Level section controller
 public class LSController : MonoBehaviour {
 
 	void Start() {

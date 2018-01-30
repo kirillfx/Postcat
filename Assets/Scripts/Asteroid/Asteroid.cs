@@ -6,7 +6,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour {
 
 	public float collisionDamageScale = 1.0f;
-	public float rotSpeedScale = 1.0f;
+	public float rotSpeedScale = 10.0f;
 	
 	private float rotSpeed;
 	private Rigidbody2D rb;
@@ -29,23 +29,22 @@ public class Asteroid : MonoBehaviour {
 		if (obj.CompareTag("Player")) {
 			float damage = col.relativeVelocity.magnitude * collisionDamageScale;
 			Postcat postcat = obj.GetComponent<Postcat>();
+			FindObjectOfType<AudioManager>().Play("hitAsteroid");
 			postcat.ApplyDamage(damage);
+			postcat.Crash();
 
-			Vector3 playerDir = 
-				(obj.transform.position - transform.position).normalized;
+			// Vector3 playerDir = 
+			// 	(obj.transform.position - transform.position).normalized;
 			
-			float angle = Vector3.Angle(Vector3.left, playerDir);
+			// float angle = Vector3.Angle(Vector3.left, playerDir);
 
-            // Sound
-            FindObjectOfType<AudioManager>().Play("hitAsteroid");
+			// if (angle >= 30.0f && angle <= 100.0f) {
+			// 	postcat.Jump();
+			// 	FindObjectOfType<AudioManager>().Play("jump");
+			// } else if (angle < 30.0f || angle > 100.0f) {
 
-			if (angle >= 30.0f && angle <= 100.0f) {
-				// Debug.Log("Jump");
-				postcat.Jump();
-			} else if (angle < 30.0f || angle > 100.0f) {
-				// Debug.Log("Crash");
-				postcat.Crash();
-			}
+				
+			// }
 		}
 	}
 

@@ -9,6 +9,7 @@ public class Postcat : MonoBehaviour {
 	public float maxSpeed = 10.0f;
 	public float consumption = 0.1f;
 	public float fuel = 100.0f;
+	public float jumpForce = 10.0f;
 
 	public float yBound = 8.0f;
 	public float reboundForce = 1.0f;
@@ -70,24 +71,18 @@ public class Postcat : MonoBehaviour {
 
 
 	public void Refuel(float fuelAmount) {
-		fuel += fuelAmount;
-        // Play sound
-        FindObjectOfType<AudioManager>().Play("refuel");
+		fuel += fuelAmount;        
 	}
 
 
 	public void Jump() {
-		rb.AddForce(Vector3.up * 5.0f, ForceMode2D.Impulse);
+		rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
 		animator.SetTrigger("Jump");
-        // Play sound
-        FindObjectOfType<AudioManager>().Play("jump");
     }
 
 
 	public void Crash() {
 		rb.AddForce(Vector3.left * 5.0f, ForceMode2D.Impulse);
 		animator.SetTrigger("Crash");
-		// TODO: Play sound - грустный кот
-
 	}
 }
