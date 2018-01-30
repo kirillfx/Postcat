@@ -25,6 +25,8 @@ public class GasTank : MonoBehaviour {
 			postcat.Refuel(fuel);
 
 			animator.SetTrigger("Take");
+
+			Destroy (gameObject, animator.GetCurrentAnimatorStateInfo(0).length + 0.1f);
 			
 		}
 
