@@ -167,6 +167,16 @@ Prefab:
       propertyPath: sounds.Array.data[4].clip
       value: 
       objectReference: {fileID: 8300000, guid: ca70aa61a878dfc4a9d77c8d9059250b, type: 3}
+    - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
+        type: 2}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 33a5cf1feff005d43b72f7ec376ca872, type: 3}
+    - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
+        type: 2}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e75ee23de086f4e85b7d0d1fc42a6a56, type: 2}
   m_IsPrefabParent: 0
