@@ -62,7 +62,32 @@ public class Postcat : MonoBehaviour {
 		} else
 			gameController.GameOver();
 
-	}
+        // Звук двигателя
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            FindObjectOfType<AudioManager>().Play("engine");
+        }
+    }
 
 
 	public void ApplyDamage(float damage) {
