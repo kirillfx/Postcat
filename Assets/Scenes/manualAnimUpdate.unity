@@ -205,7 +205,7 @@ GameObject:
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6926474624037801865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -246,14 +246,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 838962937}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1108161088}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!95 &838962939
 Animator:
   serializedVersion: 3
@@ -263,7 +263,7 @@ Animator:
   m_GameObject: {fileID: 838962937}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d948763b50264e0a86ed20306a838ce, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -282,23 +282,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e921d83dedc4c4bddad48e971231bd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 150255698}
   max: 2
---- !u!111 &838962941
-Animation:
+  scale: 1
+--- !u!320 &838962941
+PlayableDirector:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 838962937}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d9abba57b3fca4ebd961acde9f885aee, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: d9abba57b3fca4ebd961acde9f885aee, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 248135f57fb714404b712d92437eab0f, type: 2}
+  m_InitialState: 0
   m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_DirectorUpdateMode: 3
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114576913019604592, guid: 248135f57fb714404b712d92437eab0f, type: 2}
+    value: {fileID: 838962937}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1108161087
 GameObject:
   m_ObjectHideFlags: 0

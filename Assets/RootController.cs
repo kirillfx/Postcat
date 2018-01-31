@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Animations;
 
 public class RootController : MonoBehaviour {
 
-	public Transform target;
-	public float max;
-	private Animation anim;
+	public float max = 2;
+	public float scale = 1f;
+	private PlayableDirector director;
+	private float currentTime = 0;
 
 
 	void Awake() {
-		anim = GetComponent<Animation>();
-	}
-
-	// Use this for initialization
-	void Start () {
-		
+		director = GetComponent<PlayableDirector>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		float current = Mathf.Max(target.position.y, max) / max;
 
+	void Update () {
+
+		currentTime += Input.GetAxis("Horizontal") * Time.deltaTime * scale;
+		currentTime = Mathf.Min(currentTime, max);
+
+		director.time = (currentTime / max) * director.duration;
+		director.Evaluate();
 	}
 }
