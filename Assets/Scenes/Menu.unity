@@ -152,6 +152,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
+        type: 2}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c4b8f7f435606a43ab231cc6f718fa8, type: 3}
+    - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
+        type: 2}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 66e5172e428944d4390cbf820f6b8e55, type: 3}
+    - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
+        type: 2}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca70aa61a878dfc4a9d77c8d9059250b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e75ee23de086f4e85b7d0d1fc42a6a56, type: 2}
   m_IsPrefabParent: 0
@@ -275,7 +290,7 @@ Prefab:
     - target: {fileID: 224439966183860002, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -140.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224617049390377542, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
@@ -295,7 +310,7 @@ Prefab:
     - target: {fileID: 224617049390377542, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -240.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224608641671774516, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
@@ -315,7 +330,7 @@ Prefab:
     - target: {fileID: 224608641671774516, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -340.4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc8a22e279ec1f44fa38666b413bccd2, type: 2}
