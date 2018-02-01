@@ -181,7 +181,7 @@ Prefab:
         type: 2}
       propertyPath: sounds.Array.data[7].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 71f8d3a6c79564e47a9eb6bd59480e8d, type: 3}
+      objectReference: {fileID: 8300000, guid: f271b250906b2474586febe57e0e6144, type: 3}
     - target: {fileID: 114926729733765270, guid: e75ee23de086f4e85b7d0d1fc42a6a56,
         type: 2}
       propertyPath: sounds.Array.data[7].loop
@@ -325,7 +325,7 @@ Prefab:
     - target: {fileID: 224439966183860002, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 21.25
+      value: 130.75
       objectReference: {fileID: 0}
     - target: {fileID: 224439966183860002, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
@@ -345,7 +345,7 @@ Prefab:
     - target: {fileID: 224617049390377542, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 21.25
+      value: 130.75
       objectReference: {fileID: 0}
     - target: {fileID: 224617049390377542, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
@@ -365,7 +365,7 @@ Prefab:
     - target: {fileID: 224608641671774516, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 21.25
+      value: 130.75
       objectReference: {fileID: 0}
     - target: {fileID: 224608641671774516, guid: dc8a22e279ec1f44fa38666b413bccd2,
         type: 2}

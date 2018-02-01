@@ -86,6 +86,31 @@ public class Postcat : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             FindObjectOfType<AudioManager>().Play("engine");
+
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            FindObjectOfType<AudioManager>().Stop("engine");
         }
     }
 
