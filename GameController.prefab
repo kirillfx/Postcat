@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1848754946232186}
+  m_IsPrefabParent: 1
+--- !u!1 &1848754946232186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4062452477259724}
+  - component: {fileID: 114746307774755316}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4062452477259724
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848754946232186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114746307774755316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848754946232186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e526d63fec3248a3963be00e55b0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postcatPrefab: {fileID: 4942441952498030, guid: 2b47f858cea9b44a39ee0bf25cf2caa6,
+    type: 2}
+  postcatPrefabWithCargo: {fileID: 4872919168094614, guid: fdc0d7da78e434191af2b03ca900e68d,
+    type: 2}
+  levelSectionPrefab: {fileID: 4376414153753400, guid: cae23f7fafbadc74ca749357537fbfe1,
+    type: 2}
+  checkPointPrefab: {fileID: 4840635599273394, guid: 1df25a5c61a2e664cb7fda699448d76c,
+    type: 2}
+  gameOverUI: {fileID: 0}
+  winUI: {fileID: 0}
